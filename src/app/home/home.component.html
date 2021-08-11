@@ -1,0 +1,6 @@
+<div class="home-content">
+    <create-publication></create-publication>
+    <div *ngFor="let pub of publications" >
+        <publication-content [publicationId]="pub.id" ></publication-content>
+    </div>
+</div>

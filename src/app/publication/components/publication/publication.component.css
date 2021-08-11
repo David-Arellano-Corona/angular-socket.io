@@ -1,0 +1,83 @@
+.publication-area-content{
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.publication-area-header{
+    display: flex;
+    width: 100%;
+}
+.pub-area-h-avatar{
+    width: 15%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pub-area-h-avatar-container{
+    width: 50px;
+    height: 50px;
+    background: #d3d3d3;
+    border-radius: 100%;
+}
+.pub-area-h-owner{
+    width: 75%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.pub-area-h-owner-info{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+}
+.pub-area-h-owner-date{
+    font-size: 12px;
+    color: #d3d3d3;
+}
+.pub-area-h-actions{
+    width: 10%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.publication-area-body{
+    width: 100%;
+    padding: 20px 10px;
+}
+.publication-area-footer{
+    display: flex;
+    width: 96%;
+    border-bottom: 1px solid #d3d3d3;
+}
+.pub-area-f-feelings{
+    width: 50%;
+    display: flex;
+}
+.pub-area-f-feelings-circle{
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pub-area-f-feelings-circle:hover{
+    cursor: pointer;
+}
+.pub-area-f-feelings-label{
+    color: #d3d3d3;
+    padding-bottom: 2px;
+}
+.pub-area-f-comments{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+.pub-area-f-comments label:hover{
+    cursor: pointer;
+}

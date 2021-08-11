@@ -1,0 +1,28 @@
+.pub-feelings-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.pub-feelings-auxiliar-content{
+    width: 96%;
+    border-bottom: 1px solid #d3d3d3;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.pub-feeling-section{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #828282;
+}
+.pub-feeling-section-label{
+    margin-left: 10px;
+    font-size: 1em;
+}
+@media only screen and (max-width:600px){
+    .pub-feeling-section-label{
+        font-size: 0.8em;
+    }
+}

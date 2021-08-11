@@ -1,0 +1,33 @@
+<div class="create-pub-content" >
+    <div class="create-pub-section">
+        <div class="create-pub-img">
+            <div class="create-pub-img-circle"></div>
+        </div>
+        <div class="create-pub-form" >
+            <div 
+                class="create-pub-form-input" 
+                (click)="onPublication()"
+            >
+            ¿Qué estás pensando?
+            </div>
+        </div>
+    </div>
+    <div class="create-pub-section">
+        <div class="create-pub-actions">
+            <div class="create-pub-feeling">
+                <fa-icon [icon]="faVideo" style="color: #dc3545;" ></fa-icon>
+                <span>Video en vivo</span>
+            </div>
+            <div class="create-pub-feeling">
+                <fa-icon [icon]="faImage" style="color: #20C97D;" ></fa-icon>
+                <span>Foto/video</span>
+                
+            </div>
+            <div class="create-pub-feeling">
+                <fa-icon [icon]="faSmile" style="color:#F2BF5E" ></fa-icon>
+                <span>Sentimiento/actividad</span>
+                
+            </div>
+        </div>
+    </div>
+</div>

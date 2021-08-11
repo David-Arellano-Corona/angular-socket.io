@@ -1,0 +1,33 @@
+<div class="publication-area-content" >
+    <div class="publication-area-header">
+        <div class="pub-area-h-avatar" >
+            <div class="pub-area-h-avatar-container" ></div>
+        </div>
+        <div class="pub-area-h-owner" >
+            <div class="pub-area-h-owner-info">{{owner}}</div>
+            <div class="pub-area-h-owner-date" >{{ createdAt | date:'d MMM y' }}</div>
+        </div>
+        <div class="pub-area-h-actions">
+            <fa-icon [icon]="faEllipsisH" ></fa-icon>
+        </div>
+    </div>
+    <div class="publication-area-body" >
+        <p class="pub-area-b-text" >
+            {{text}}
+        </p>
+    </div>
+    <div class="publication-area-footer" >
+        <div class="pub-area-f-feelings" >
+            <div class="pub-area-f-feelings-circle background-blue" >
+                <fa-icon [icon]="faHandPointRight"  class="icon-size-13 icon-color-white  icon-padding-border-none" ></fa-icon>
+            </div>
+            <div class="pub-area-f-feelings-circle background-red" >
+                <fa-icon [icon]="faHeart" class="icon-size-13 icon-color-white  icon-padding-border-none" ></fa-icon>
+            </div>
+            <div class="pub-area-f-feelings-label pub-area-f-feelings-circle">4</div>
+        </div>
+        <div class="pub-area-f-comments" >
+            <label >4 comentarios</label>
+        </div>
+    </div>
+</div>

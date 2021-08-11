@@ -1,0 +1,11 @@
+<div class="publication-list-content" >
+    <publication-area [publication] = "publicationDetail" ></publication-area>
+    
+    <app-feelings></app-feelings>
+    
+    <div *ngFor="let comment of publicationComment" >
+        <app-comments [comment]=comment ></app-comments>
+    </div>
+
+    <app-comment-box [publicationId]="publicationId"></app-comment-box>
+</div>

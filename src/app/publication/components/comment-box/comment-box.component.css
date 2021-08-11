@@ -1,0 +1,29 @@
+.comment-box-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+.comment-box-auxiliar-content{
+    width: 96%;
+    display: flex;
+}
+.comment-box-avatar{
+    width: 10%;
+    display: flex;
+}
+.comment-box-avatar-container{
+    width: 35px;
+    height: 35px;
+    background: #d3d3d3;
+    border-radius: 100%;
+}
+.comment-box-input{
+    background: #f2f2f2;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    width: 90%;
+    padding: 0px 20px;
+}

@@ -1,0 +1,98 @@
+<div class="login-container">
+  <div class="toast-area" >
+    <ngb-toast *ngIf="show" [delay]="3000" [autohide]="true" class="toast-color" (hidden)="show=false">
+      {{ message_toast }}
+    </ngb-toast>
+  </div>
+  <section class="login-form">
+    <div class="login-form-info">
+      <h2 class="login-info-title">Lorem</h2>
+      <p class="login-info-p">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Facere nemo accusamus quis deserunt. 
+        Quos quasi dicta fugit quidem velit officiis saepe eos. 
+        Quaerat, iure rerum! Porro excepturi sint temporibus? Sed!
+      </p>
+    </div>
+    <div class="login-form-form">
+      
+      <div class="login-form-content" [formGroup]="loginForm" >
+        <input
+          type="email"
+          placeholder="Correo Electrónico"
+          [class]=" email?.valid || !email?.touched ? 'form-control' : 'form-control input-error' "
+          formControlName="email"
+        />
+        
+        <input type="password" placeholder="*********" 
+        [class]=" password?.valid || !password?.touched ? 'form-control' : 'form-control input-error' " 
+        formControlName="password"
+        />
+
+        <button class="btn btn-primary w-100 mt-3" (click)="onLogin()" 
+        [disabled]="password?.valid && email?.valid ? false : true "
+        >Iniciar sesión</button>
+        <a href="#" class="mt-4">¿Olvidaste tu contraseña?</a>
+
+        <div class="login-account-content w-100">
+            <button class="btn btn-success mt-4 w-100" (click)="openModal(createAccount)" >Crear cuenta nueva</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Modal section -->
+<ng-template #createAccount let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Registrarte</h4>
+    <button class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" [formGroup]="accountForm" >
+    <div class="row">
+      <div class="form-group col">
+        <input type="text" formControlName="name" placeholder="Nombre" 
+        [class] = "name?.valid || !name?.touched ? 'form-control': 'form-control input-error' "
+        >
+      </div>
+      <div class="form group col"  >
+        <input type="text" formControlName="firstname" placeholder="Apellido" 
+        [class] = "firstname?.valid || !firstname?.touched ? 'form-control': 'form-control input-error' "
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col form-group ">
+        <input type="email" formControlName="emailAccount" placeholder="Correo electrónico" 
+        [class] = "emailAccount?.valid || !emailAccount?.touched ? 'form-control': 'form-control input-error' "
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col form-group">
+        <input type="password"  formControlName="passwordAccount" placeholder="Contraseña" 
+        [class] = "passwordAccount?.valid || !passwordAccount?.touched ? 'form-control': 'form-control input-error' "
+        >
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col">
+        <input type="date" formControlName="date_of_birth" name="" id="" 
+        [class] = "date_of_birth?.valid || !date_of_birth?.touched ? 'form-control': 'form-control input-error' " 
+        >
+      </div>
+      <div class="col">
+        <select name="" id="" formControlName="gender"  class="form-control">
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+          <option value="O">Otro</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success w-100" [disabled]="isValidForm()" (click)="onCreate()" >Registrate</button>
+  </div>
+</ng-template>

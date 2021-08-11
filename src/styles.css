@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+}
+.icon-padding-border-none{
+    padding: 0;
+    border: 0;
+}
+.icon-size-13{
+    font-size: 13px;
+}
+.icon-color-white{
+    color: white;
+}
+.background-red{
+    background:#dc3545
+}
+.background-blue{
+    background: #0460D9;
+}

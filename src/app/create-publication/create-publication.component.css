@@ -1,0 +1,73 @@
+.create-pub-content{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px #d3d3d3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+}
+.create-pub-section{
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+.create-pub-section:first-child{
+    border-bottom: 1px solid #d3d3d3;
+    justify-content: space-between;
+}
+.create-pub-img{
+    width: 10%;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+}
+.create-pub-img-circle{
+    width: 100%;
+    height: 100%;
+    background: gray;
+    border-radius: 100%;
+}
+.create-pub-form{
+    width: 88%;
+    display: flex;
+    align-items: center;
+}
+.create-pub-form-input{
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    background: #f2f2f2;
+    padding: 2px 10px;
+    border: none;
+}
+.create-pub-actions{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+span{
+    font-size:1em;
+    margin-left: 5px;
+}
+@media only screen and (max-width:600px){
+    .create-pub-content{
+        width: 100%;
+    }
+    .create-pub-feeling:last-child{
+        display: none;
+    }
+}
+
+@media only screen and (max-width:800px){
+    .create-pub-content{
+        width: 67%;
+    }
+}

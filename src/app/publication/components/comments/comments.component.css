@@ -1,0 +1,39 @@
+.comment-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+.comment-auxiliar-content{
+    width: 96%;
+    display: flex;
+}
+.comment-avatar{
+    width: 10%;
+    display: flex;
+}
+.comment-avatar-container{
+    width: 35px;
+    height: 35px;
+    background: #d3d3d3;
+    border-radius: 100%;
+}
+.comment-owner{
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.comment-owner-ballon{
+    background: #f2f2f2;
+    max-width: 100%;
+    padding: 7px 10px;
+    border-radius: 16px;
+}
+.comment-owner-info{
+    font-weight: bolder;
+    font-size: 11px;
+}
+.comment-owner-comment{
+    font-size: 14px;
+}
