@@ -22,7 +22,7 @@ export class PublicationService{
     }
 
     getComments(publicationId:string){
-        return this.commentQuery.watch({publicationId}).valueChanges;
+        return this.commentQuery.watch({publicationId});
     }
 
 }

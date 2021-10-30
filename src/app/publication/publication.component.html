@@ -1,7 +1,12 @@
 <div class="publication-list-content" >
-    <publication-area [publication] = "publicationDetail" ></publication-area>
+    <publication-area 
+    [publication] = "publicationDetail"
+    [i_likes]="likes" 
+    ></publication-area>
     
-    <app-feelings></app-feelings>
+    <app-feelings
+    (o_incrementLike)="createLike()"
+    ></app-feelings>
     
     <div *ngFor="let comment of publicationComment" >
         <app-comments [comment]=comment ></app-comments>

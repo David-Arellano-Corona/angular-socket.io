@@ -31,3 +31,26 @@ export interface CommentCreate{
     owner:string;
     publication:string;
 }
+export interface Suggestion{
+    id:string;
+    name:String;
+    firstname:string;
+}
+export interface Suggestions{
+    suggestions:Suggestion[]
+}
+
+interface friendship{
+    friend:string,
+    user:string
+}
+
+export interface CreateFriendship{
+    createFriendship:friendship
+}
+
+export interface Login{
+    login:{
+        token:string
+    }
+}

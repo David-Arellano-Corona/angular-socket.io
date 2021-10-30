@@ -1,6 +1,6 @@
 <div class="home-content">
-    <create-publication></create-publication>
+    <create-publication (createPublication)="createPublication2($event)"></create-publication>
     <div *ngFor="let pub of publications" >
-        <publication-content [publicationId]="pub.id" ></publication-content>
+        <publication-content [publicationId]="pub.id"  ></publication-content>
     </div>
 </div>

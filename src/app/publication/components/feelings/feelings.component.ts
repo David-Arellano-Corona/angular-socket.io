@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { faHandPointRight, faCommentAlt, faShare } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-feelings',
@@ -6,6 +6,10 @@ import { faHandPointRight, faCommentAlt, faShare } from '@fortawesome/free-solid
   styleUrls: ['./feelings.component.css']
 })
 export class FeelingsComponent implements OnInit {
+
+  @Output() o_incrementLike = new EventEmitter()
+
+  @Input() publicationId?:string;
 
   faHandPointRight = faHandPointRight
   faCommentAlt = faCommentAlt
@@ -16,4 +20,7 @@ export class FeelingsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  incrementLike(){
+    this.o_incrementLike.emit();
+  }
 }

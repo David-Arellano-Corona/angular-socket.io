@@ -4,7 +4,7 @@
       {{ message_toast }}
     </ngb-toast>
   </div>
-  <section class="login-form">
+  <div class="login-form">
     <div class="login-form-info">
       <h2 class="login-info-title">Lorem</h2>
       <p class="login-info-p">
@@ -22,6 +22,7 @@
           placeholder="Correo Electrónico"
           [class]=" email?.valid || !email?.touched ? 'form-control' : 'form-control input-error' "
           formControlName="email"
+          autofocus
         />
         
         <input type="password" placeholder="*********" 
@@ -39,7 +40,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </div>
 
 <!-- Modal section -->

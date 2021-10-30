@@ -25,6 +25,7 @@ export class ModalComponent implements OnInit {
   ){ }
 
   ngOnInit(): void {
+    this.publicationForm.get("text")?.setValue("")
   }
 
   get text(){

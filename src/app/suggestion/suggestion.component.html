@@ -1,0 +1,19 @@
+<div class="suggestion-container " >
+    <div class="suggestion-users"  >
+        <div class="suggestion-users-title-container">
+            <h5 class="suggestion-users-title" >Personas que quizá conozcas</h5>
+        </div>
+        <suggestion-user class="suggestion-width" (newFriendship)="createFriednship($event)"  [suggestionsInput]="suggestion" *ngFor="let suggestion of suggestions"></suggestion-user>
+    </div>
+    <div class="suggestion-preview" >
+        <div class="suggestion-preview-empty" >
+            <div class="suggestion-preview-img" >
+                <img src="./assets/img/null_states_people_gray_wash.svg" alt="">
+            </div>
+            <label class="suggestion-preview-label" >
+                Selecciona el nombre de una persona para obtener una vista previa de su perfil.
+            </label>
+        </div>
+    </div>
+    
+</div>

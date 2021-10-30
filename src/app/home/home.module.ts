@@ -6,7 +6,7 @@ import { CreatePublicationModule } from '../create-publication/create-publicatio
 import { HomeComponent } from './home.component';
 import { PublicationQuery } from './gql/publication.query';
 import { HomeService } from './services/home.service';
-
+//import { WebSocketService } from '../web-socket.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { HomeService } from './services/home.service';
   ],
   providers:[
     PublicationQuery,
-    HomeService
+    HomeService,
+    //WebSocketService
   ]
 })
 export class HomeModule { }

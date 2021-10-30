@@ -1,0 +1,39 @@
+.suggestion-user-container{
+    display: flex;
+    width: 95%!important;
+    background: white;
+    padding: 10px 10px;
+}
+.suggestion-user-container:hover{
+    background: #F0F2F5;
+    border-radius: 5px;
+}
+.suggestion-user-avatar{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+.suggestion-avatar-continer{
+    width: 80%;
+    height: 75%;
+    background: #f2f2f2;
+    border-radius: 100%;
+}
+.suggestion-user-info{
+    width: 75%;
+}
+.suggestion-user-name{
+    color: #6c757d;
+    font-weight: bold;
+    font-size: 13px;
+}
+.suggestion-user-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.btn-thin{
+    font-size: 13px!important;
+    font-weight: bold!important;
+    width: 45%!important;
+}

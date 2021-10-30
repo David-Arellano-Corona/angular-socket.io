@@ -23,7 +23,6 @@ export class UserService extends Mutation {
       name
       firstname
       email
-      password
       date_of_birth
       gender
     }

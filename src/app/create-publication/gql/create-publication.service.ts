@@ -13,6 +13,7 @@ export class CreatePublication extends Mutation {
             text:$text
           }
         ){
+          id
           owner
           text
         }

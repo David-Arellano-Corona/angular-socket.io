@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NgbModal, ModalDismissReasons, NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { Apollo, gql } from 'apollo-angular';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { UserService } from './gql/user.service';
 import { LoginService } from './gql/login.service';
+import { SessionService } from '../commons/session.services';
 
 @Component({
   selector: 'app-login',
@@ -32,12 +33,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private apolloService: Apollo,
     private userService: UserService,
-    private loginService: LoginService
-  ) {}
+    private loginService: LoginService,
+    private router: Router,
+    private sessionService: SessionService
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   get email() {
     return this.loginForm.get('email');
@@ -46,24 +48,24 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  get name(){
+  get name() {
     return this.accountForm.get('name')
   }
-  get firstname(){
+  get firstname() {
     return this.accountForm.get('firstname')
   }
-  get emailAccount(){
+  get emailAccount() {
     return this.accountForm.get('emailAccount')
   }
-  get passwordAccount(){
+  get passwordAccount() {
     return this.accountForm.get('passwordAccount')
   }
-  get date_of_birth(){
+  get date_of_birth() {
     return this.accountForm.get('date_of_birth')
   }
 
 
-  isValidForm(){
+  isValidForm() {
     let gender = this.accountForm.get('gender')?.valid
     let date_of_birth = this.accountForm.get('date_of_birth')?.valid
     let password = this.accountForm.get('passwordAccount')?.valid
@@ -71,7 +73,7 @@ export class LoginComponent implements OnInit {
     let firstname = this.accountForm.get('firstname')?.valid
     let name = this.accountForm.get('name')?.valid
 
-    let isDisabled = !date_of_birth || !password || !email || !firstname || !name || !gender? true: false
+    let isDisabled = !date_of_birth || !password || !email || !firstname || !name || !gender ? true : false
     return isDisabled
   }
 
@@ -106,6 +108,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  private printAlert(message:string){
+    this.message_toast = message;
+    this.show = true;
+  }
+
   onLogin() {
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
@@ -113,50 +120,50 @@ export class LoginComponent implements OnInit {
       email,
       password
     }).subscribe((result) => {
-      console.log(result)
-    },(error) => {
-      console.log({
-        message:error.message,
-        graphQLErrors: error.graphQLErrors,
-        networkError: error.networkError,
-        extraInfo: error.extraInfo
-      })
-      this.message_toast = error.graphQLErrors[0]['message'];
-      this.show = true;
+      const isValidLogin = result.data?.login?.token 
+      if( isValidLogin ){
+        this.sessionService.setsession(isValidLogin)
+        this.router.navigate(['/home'])
+      }else{
+        this.printAlert("Algo salio mal en el proceso, intenta mas tarde")
+      }
+
+    }, (error) => {
+      this.printAlert(error.graphQLErrors[0]['message'])
     })
   }
 
-  onCreate(){
+  onCreate() {
     let gender = this.accountForm.get('gender')?.value
     let date_of_birth = this.accountForm.get('date_of_birth')?.value
     let password = this.accountForm.get('passwordAccount')?.value
     let email = this.accountForm.get('emailAccount')?.value
     let firstname = this.accountForm.get('firstname')?.value
     let name = this.accountForm.get('name')?.value
-    this.userService.mutate( {
-        name,
-        firstname,
-        email,
-        password,
-        date_of_birth,//:"1995-06-26",
-        gender
-      }
+    this.userService.mutate({
+      name,
+      firstname,
+      email,
+      password,
+      date_of_birth,//:"1995-06-26",
+      gender
+    }
     )
-    .subscribe((result) => {
-      console.log(result)
-      this.modalService.dismissAll('Success')
-    },
-    (error) => {
-      console.log(Object.keys(error))
-      //console.log(error.networkError.error.errors)
-      console.log({
-        message:error.message,
-        graphQLErrors: error.graphQLErrors,
-        networkError: error.networkError,
-        extraInfo: error.extraInfo
-      })
-    })
+      .subscribe((result) => {
+        console.log(result)
+        this.modalService.dismissAll('Success')
+      },
+        (error) => {
+          console.log(Object.keys(error))
+          //console.log(error.networkError.error.errors)
+          console.log({
+            message: error.message,
+            graphQLErrors: error.graphQLErrors,
+            networkError: error.networkError,
+            extraInfo: error.extraInfo
+          })
+        })
   }
 
-  onRegister() {}
+  onRegister() { }
 }

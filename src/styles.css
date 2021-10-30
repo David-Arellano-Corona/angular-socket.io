@@ -2,6 +2,10 @@
 *{
     box-sizing: border-box;
 }
+body{
+    width: 100vw;
+    height: 100vh;
+}
 .icon-padding-border-none{
     padding: 0;
     border: 0;
@@ -17,4 +21,7 @@
 }
 .background-blue{
     background: #0460D9;
+}
+.background-gray{
+    background:#f2f2f2
 }

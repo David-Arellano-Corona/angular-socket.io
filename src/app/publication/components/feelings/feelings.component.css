@@ -17,6 +17,9 @@
     align-items: center;
     color: #828282;
 }
+.pub-feeling-section:hover{
+    cursor: pointer;
+}
 .pub-feeling-section-label{
     margin-left: 10px;
     font-size: 1em;

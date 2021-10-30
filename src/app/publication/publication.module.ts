@@ -9,11 +9,13 @@ import { PublicationAreaComponent } from './components/publication/publication.c
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 import { PublicationService } from './service/publication.service';
 import { CommentService } from './service/comment.service';
+import { LikesService } from './service/likes.service';
 import { PublicationQuery } from './gql/publication.query';
 import { CommentQuery } from './gql/comment.query';
 import { CommentMutation } from './gql/comment.mutation';
+import { LikeMutation } from './gql/like.mutation';
 import { PublicationDetail } from './gql/publication-detail.query';
-
+import { LikesQuery } from './gql/likes.query';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,12 @@ import { PublicationDetail } from './gql/publication-detail.query';
     PublicationService,
     PublicationQuery,
     CommentQuery,
+    LikesQuery,
     CommentMutation,
+    LikeMutation,
     PublicationDetail,
-    CommentService
+    CommentService, 
+    LikesService
   ]
 })
 export class PublicationModule { }

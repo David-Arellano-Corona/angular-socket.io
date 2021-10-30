@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faVideo, faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Apollo } from 'apollo-angular';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreatePublication } from './gql/create-publication.service';
+import { SessionService } from '../commons/session.services';
+
 
 @Component({
   selector: 'create-publication',
@@ -13,11 +14,16 @@ import { CreatePublication } from './gql/create-publication.service';
 })
 export class CreatePublicationComponent implements OnInit {
 
+  @Output() createPublication = new EventEmitter();
+
   showModal = false;
 
   faVideo = faVideo
   faImage = faImage
   faSmile = faSmile
+
+  userName!:string;
+  
 
   publicationForm = new FormGroup({
     text: new FormControl("",[Validators.required])
@@ -25,10 +31,13 @@ export class CreatePublicationComponent implements OnInit {
 
   constructor(
     private modalService:NgbModal,
-    private createPubGql:CreatePublication
+    private createPubGql:CreatePublication,
+    private sessionService:SessionService
   ){ }
 
   ngOnInit(): void {
+    const sessionInfo = this.sessionService.getsessionInfo()
+    this.userName = sessionInfo.name
   }
 
   onPublication(){
@@ -55,13 +64,15 @@ export class CreatePublicationComponent implements OnInit {
   }
 
   async makePublication(){
-    const owner = "60c968cbff988b462c682e25"
+    const session = this.sessionService.getsessionInfo()
+    const owner = session.id
     const text = this.publicationForm.get('text')?.value;
     this.createPubGql.mutate({
       owner,
       text
     }).subscribe((result) => {
       console.log(result)
+      this.createPublication.emit(result);
     },(error) => {
       console.log({
         message:error.message,
@@ -71,5 +82,12 @@ export class CreatePublicationComponent implements OnInit {
       })
     })
   }
+
+  pruebas(){
+    console.log("Pruebas")
+    
+  }
+
+  
 
 }

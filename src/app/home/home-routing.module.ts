@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { SessionGuard } from '../commons/session.guard';
 
 const router:Routes = [
-  { path:'', component:HomeComponent }
+  { path:'', component:HomeComponent, canActivate:[SessionGuard] }
 ]
 
 @NgModule({
